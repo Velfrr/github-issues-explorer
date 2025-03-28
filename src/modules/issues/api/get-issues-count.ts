@@ -1,11 +1,11 @@
 import { api } from '../../../api';
-import { FetchIssueDetailsPayload } from '../store';
+import { FetchIssuesPayload } from '../store';
 import { GetRepositoryResponse } from '../types/repository';
 
 export const getIssuesCount = async ({
   owner,
   repo,
-}: FetchIssueDetailsPayload): Promise<number> => {
+}: FetchIssuesPayload): Promise<number> => {
   const query = `
     query {
       repository(owner: "${owner}", name:"${repo}") {

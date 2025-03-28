@@ -12,17 +12,16 @@ import {
 import { FetchIssueDetailsPayload, FetchIssuesPayload } from './issue.types';
 import { getIssueDetails } from '../api/get-issue-details';
 import { checkIsApiError, extractErrorMessage } from '../../../utils';
-import { Issue } from '../types';
 
 function* fetchIssuesSaga(
   action: ActionWithCallbacks<FetchIssuesPayload>,
-): Generator<unknown, void, [Issue[], number]> {
+): Generator {
   const { data, onFailure, onSuccess } = action.payload;
 
   try {
     const [issues, total] = yield all([
       call(getIssues, data),
-      call(getIssuesCount as any, data), // TODO: remove any usage
+      call(getIssuesCount, data),
     ]);
 
     yield put(fetchIssuesSuccess({ issues, total }));
