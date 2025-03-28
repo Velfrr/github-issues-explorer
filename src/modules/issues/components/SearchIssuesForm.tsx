@@ -24,14 +24,14 @@ export const SearchIssuesForm: FC<Props> = ({
     >
       <Form.Item
         name="owner"
-        label="Organization"
+        label="Organization (e.g. facebook)"
         rules={[{ required: true, message: 'Organization is required' }]}
       >
         <Input size="large" placeholder="Enter organization" />
       </Form.Item>
       <Form.Item
         name="repo"
-        label="Repository"
+        label="Repository (e.g. react)"
         rules={[{ required: true, message: 'Repository is required' }]}
       >
         <Input size="large" placeholder="Enter repository name" />

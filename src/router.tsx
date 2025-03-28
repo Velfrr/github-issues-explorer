@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router';
-import { IssuesSearchPage, IssueDetailsPage } from './pages';
+import { IssuesSearchPage, IssueDetailsPage, NotFoundPage } from './pages';
 import { DefaultLayout } from './layouts';
 
 export const router = createBrowserRouter([
@@ -11,6 +11,7 @@ export const router = createBrowserRouter([
         path: '/:owner/:repo/:number',
         element: <IssueDetailsPage />,
       },
+      { path: '/*', element: <NotFoundPage /> },
     ],
   },
 ]);
