@@ -87,7 +87,7 @@ export const IssuesSearchPage: FC = (): ReactNode => {
         handleSortByChange={handleSortByChange}
         sortDirection={sortDirection}
         handleSortDirectionChange={handleSortDirectionChange}
-        className="self-end"
+        className="mt-6 self-end"
       />
 
       <IssuesList

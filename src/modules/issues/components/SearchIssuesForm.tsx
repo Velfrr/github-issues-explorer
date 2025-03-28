@@ -20,7 +20,7 @@ export const SearchIssuesForm: FC<Props> = ({
       form={form}
       onFinish={onSubmit}
       layout="vertical"
-      className="flex gap-2"
+      className="flex justify-center gap-2 rounded-lg border border-slate-300 !px-10 !pt-6 !pb-2 shadow-lg"
     >
       <Form.Item
         name="owner"
