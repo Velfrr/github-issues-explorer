@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# Github Issues Browser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project allows users to browse and search GitHub issues using the GitHub API. It provides interface for interacting with repositories, fetching issues, and sorting them according to different parameters.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **GitHub Issues Browser**: Search and view issues from GitHub repositories.
+- **Pagination**: Navigate through large sets of issues with pagination.
+- **Sorting**: Sort issues by different criteria like creation date, comments count, etc.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React (with TypeScript)
+- **State Management**: Redux (with Redux-Saga for side-effects)
+- **API**: GitHub REST/GraphQL API for fetching issues and repository data
+- **UI**: Ant Design for components
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Setup
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Before running the application, you need to set up the environment variables for authentication and configuration.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/Velfrr/github-issues-explorer.git
+   cd github-issues-explorer
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   yarn
+   ```
+
+3. **Create a `.env` file**:
+
+   At the root of the project, create a `.env` file and add the following environment variables:
+
+   - `VITE_GITHUB_ACCESS_TOKEN`: Your GitHub personal access token.
+
+   Example of `.env` file:
+
+   ```env
+   VITE_GITHUB_ACCESS_TOKEN=<GitHub Access Token>
+   ```
+
+   The access token is used to authenticate API requests to GitHub's GraphQL API.
+
+4. **Start the application**:
+
+   After setting up the `.env` file with the correct variables, you can run the application:
+
+   ```bash
+   yarn dev
+   ```
